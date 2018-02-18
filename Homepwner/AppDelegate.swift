@@ -16,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Since the appDelegate is what's loaded when the app launches, create an ItemStore here in the appDelegate...
+        let itemStore = ItemStore()
+        
+        //Since the ItemsViewController is the first viewController loaded when the app starts, set ItemsViewController as the rootViewController...
+        let itemsController = window!.rootViewController as! ItemsViewController
+        
+        //Now that we've created the ItemsViewController instance/views/and all that jazz we will now set the itemStore property of the ItemsViewController to the exact same ItemStore instance created above, this way the app will have it loaded and ready upon launch...
+        itemsController.itemStore = itemStore
+        
         return true
     }
 

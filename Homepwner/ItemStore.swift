@@ -12,5 +12,9 @@ class ItemStore {
     
     var allItems = [Item]()
     
-    
+    func createItem() -> Item {
+        let newItem = Item.init(random: true)
+        allItems.append(newItem)
+        return newItem
+    }
 }
