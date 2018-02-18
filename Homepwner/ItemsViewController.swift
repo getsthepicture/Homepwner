@@ -14,5 +14,9 @@ class ItemsViewController: UITableViewController {
     
     //giving the controller access to the ItemStore...
     var itemStore: ItemStore!
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemStore.allItems.count
+    }
 }
 

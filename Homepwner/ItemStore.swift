@@ -17,4 +17,11 @@ class ItemStore {
         allItems.append(newItem)
         return newItem
     }
+    
+    //implement the designated initializer to add five random items...
+    init() {
+        for _ in 0..<5 {
+            createItem()
+        }
+    }
 }
