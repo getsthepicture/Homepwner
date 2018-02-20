@@ -12,11 +12,22 @@ import UIKit
 
 class ItemsViewController: UITableViewController {
     
-    //giving the controller access to the ItemStore...
+    //giving the controller access to the ItemStore using a dependency injection way by not instantiating it here in this class in order to create a sense of abstraction therefore it is only a reference through a variable...
     var itemStore: ItemStore!
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.allItems.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell.init(style: .value1, reuseIdentifier: "UITableViewCell")
+        
+        let item = itemStore.allItems[indexPath.row]
+        
+        cell.textLabel?.text = item.name
+        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        
+        return cell
     }
 }
 
